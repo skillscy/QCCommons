@@ -1,10 +1,10 @@
-package exceptions;
+package com.qc.skillscy.commons.exceptions;
 
-import codes.ApplicationCodes;
-import codes.HTTPCodes;
-import dto.ErrorResponse;
-import dto.StatusIndicator;
-import loggers.CommonLogger;
+import com.qc.skillscy.commons.codes.ApplicationCodes;
+import com.qc.skillscy.commons.codes.HTTPCodes;
+import com.qc.skillscy.commons.dto.ErrorResponse;
+import com.qc.skillscy.commons.dto.StatusIndicator;
+import com.qc.skillscy.commons.loggers.CommonLogger;
 
 public class WebServiceException extends Exception {
 

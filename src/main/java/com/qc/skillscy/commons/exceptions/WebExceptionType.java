@@ -1,4 +1,4 @@
-package exceptions;
+package com.qc.skillscy.commons.exceptions;
 
 public enum WebExceptionType {
 

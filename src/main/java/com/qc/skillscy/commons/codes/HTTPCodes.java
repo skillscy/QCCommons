@@ -1,4 +1,4 @@
-package codes;
+package com.qc.skillscy.commons.codes;
 
 public enum HTTPCodes {
 

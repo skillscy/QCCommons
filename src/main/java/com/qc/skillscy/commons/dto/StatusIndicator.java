@@ -1,8 +1,8 @@
-package dto;
+package com.qc.skillscy.commons.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import loggers.CommonLogger;
+import com.qc.skillscy.commons.loggers.CommonLogger;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusIndicator {

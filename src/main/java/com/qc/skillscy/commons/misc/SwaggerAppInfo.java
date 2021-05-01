@@ -1,4 +1,4 @@
-package misc;
+package com.qc.skillscy.commons.misc;
 
 public enum SwaggerAppInfo {
     MainWS("MAIN-WS", "QC MainWS", "This webservice exposes several APIs which are connected to the third-party applications for various purposes.");

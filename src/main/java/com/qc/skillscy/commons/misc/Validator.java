@@ -1,9 +1,9 @@
-package misc;
+package com.qc.skillscy.commons.misc;
 
-import codes.ApplicationCodes;
-import codes.HTTPCodes;
-import exceptions.WebExceptionType;
-import exceptions.WebServiceException;
+import com.qc.skillscy.commons.codes.ApplicationCodes;
+import com.qc.skillscy.commons.codes.HTTPCodes;
+import com.qc.skillscy.commons.exceptions.WebExceptionType;
+import com.qc.skillscy.commons.exceptions.WebServiceException;
 
 public class Validator {
 

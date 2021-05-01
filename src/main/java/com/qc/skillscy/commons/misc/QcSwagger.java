@@ -1,4 +1,4 @@
-package misc;
+package com.qc.skillscy.commons.misc;
 
 public class QcSwagger {
 

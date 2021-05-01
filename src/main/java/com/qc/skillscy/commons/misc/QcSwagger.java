@@ -2,7 +2,8 @@ package com.qc.skillscy.commons.misc;
 
 public class QcSwagger {
 
-    private QcSwagger() {}
+    private QcSwagger() {
+    }
 
     public static final String COMPANY = "Quart Ciphers";
     public static final String WING = "Skillscy";

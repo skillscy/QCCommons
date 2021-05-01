@@ -7,7 +7,8 @@ import com.qc.skillscy.commons.exceptions.WebServiceException;
 
 public class Validator {
 
-    private Validator() {}
+    private Validator() {
+    }
 
     public static void notNull(Object value) throws WebServiceException {
         if (value == null)

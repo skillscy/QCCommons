@@ -10,6 +10,13 @@ public class Validator {
     private Validator() {
     }
 
+    public static String ignoreNullByString(String any) {
+        // This methods will have string argument and returns the same if not null else will return an empty string
+        if (any == null)
+            return "";
+        return any;
+    }
+
     public static void notNull(Object value) throws WebServiceException {
         if (value == null)
             throw new WebServiceException(ApplicationCodes.VALIDATION_NULL_FOUND, HTTPCodes.BAD_REQUEST, WebExceptionType.VALIDATION);

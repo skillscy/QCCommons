@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'org.quartciphers.skillscy'
-version '1.2'
+version '1.4'
 
 sourceCompatibility = 1.8
 

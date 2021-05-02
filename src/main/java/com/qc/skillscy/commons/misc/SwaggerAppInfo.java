@@ -9,7 +9,7 @@ public enum SwaggerAppInfo {
     AuthWS("AUTH-WS", "AuthWS", "This webservice exposes several APIs for site, mobile app authentication activities."),
     ClientWS("CLIENT-WS", "ClientWS", "This webservice exposes several APIs for client on-boarding activities."),
     DocumentWS("DOCUMENT-WS", "DocumentWS", "This webservice exposes several APIs for creating or downloading various certificate from QC."),
-    FeedbackWS("FEEDBACK-WS", "FeedbackWS", "This webservice exposes several APIs for getting feedback from employees and election related activites.");
+    FeedbackWS("FEEDBACK-WS", "FeedbackWS", "This webservice exposes several APIs for getting feedback from employees and election related activities.");
 
     private String springAppName;
     private String appName;

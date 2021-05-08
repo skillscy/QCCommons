@@ -42,8 +42,7 @@ public class CommonLogger {
     }
 
     public static void error(Class<?> classType, ApplicationCodes appResponse) {
-        final String messageFormat = "{0} - {1}";
-        getLoggerObject(classType).severe(MessageFormat.format(messageFormat, appResponse.getAppCode(), appResponse.getAppCodeDescription()));
+        getLoggerObject(classType).severe(appResponse.logMessage());
     }
 
 }

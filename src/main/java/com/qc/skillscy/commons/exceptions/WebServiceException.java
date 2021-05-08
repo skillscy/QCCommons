@@ -6,6 +6,8 @@ import com.qc.skillscy.commons.dto.ErrorResponse;
 import com.qc.skillscy.commons.dto.StatusIndicator;
 import com.qc.skillscy.commons.loggers.CommonLogger;
 
+import java.text.MessageFormat;
+
 public class WebServiceException extends Exception {
 
     private ApplicationCodes applicationCode;
@@ -13,6 +15,7 @@ public class WebServiceException extends Exception {
     private WebExceptionType exceptionType;
 
     public WebServiceException(ApplicationCodes appCode, HTTPCodes httpCode) {
+        super(appCode.logMessage());
         this.applicationCode = appCode;
         this.httpCode = httpCode;
         this.exceptionType = WebExceptionType.INTERNAL_ERROR;
@@ -20,6 +23,7 @@ public class WebServiceException extends Exception {
     }
 
     public WebServiceException(ApplicationCodes appCode, HTTPCodes httpCode, WebExceptionType exceptionType) {
+        super(appCode.logMessage());
         this.applicationCode = appCode;
         this.httpCode = httpCode;
         this.exceptionType = exceptionType;

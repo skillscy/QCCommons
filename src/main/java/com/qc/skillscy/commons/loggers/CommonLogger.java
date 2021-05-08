@@ -17,7 +17,6 @@ package com.qc.skillscy.commons.loggers;
 
 import com.qc.skillscy.commons.codes.ApplicationCodes;
 
-import java.text.MessageFormat;
 import java.util.logging.Logger;
 
 public class CommonLogger {

@@ -6,12 +6,12 @@ import org.junit.Test;
 public class QcUtilTests {
 
     /*
-    * Naming Convention of these Methods
-    * ----------------------------------
-    *
-    * [MethodName_StateUnderTest_ExpectedBehavior]
-    *
-    */
+     * Naming Convention of these Methods
+     * ----------------------------------
+     *
+     * [MethodName_StateUnderTest_ExpectedBehavior]
+     *
+     */
 
     @Test
     public void generateNextID_ClearCompanyID_GeneratesNextValue() throws WebServiceException {

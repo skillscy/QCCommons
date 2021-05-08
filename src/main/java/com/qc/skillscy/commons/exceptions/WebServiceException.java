@@ -6,8 +6,6 @@ import com.qc.skillscy.commons.dto.ErrorResponse;
 import com.qc.skillscy.commons.dto.StatusIndicator;
 import com.qc.skillscy.commons.loggers.CommonLogger;
 
-import java.text.MessageFormat;
-
 public class WebServiceException extends Exception {
 
     private ApplicationCodes applicationCode;

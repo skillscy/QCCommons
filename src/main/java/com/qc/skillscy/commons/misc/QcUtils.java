@@ -5,7 +5,8 @@ import com.qc.skillscy.commons.loggers.CommonLogger;
 
 public class QcUtils {
 
-    private QcUtils() {}
+    private QcUtils() {
+    }
 
     private static String TEXT_COUNTER_NOT_LAST = "[A-Z][A-Y]";
     private static String TEXT_COUNTER_LAST = "[A-Z]Z";

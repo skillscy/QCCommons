@@ -1,6 +1,7 @@
 package tests;
 
 import com.qc.skillscy.commons.codes.ApplicationCodes;
+import com.qc.skillscy.commons.dto.StatusIndicator;
 import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.misc.QcUtils;
 import dto.SampleDTO;
@@ -116,6 +117,13 @@ public class QcUtilTests {
         Assert.assertEquals(returnedObject.get("age"), 12);
         Assert.assertEquals(returnedObject.get("marks"), 72.0);
         Assert.assertEquals(returnedObject.get("grade"), "B");
+    }
+
+    @Test
+    public void defaultSuccessBody_NormalCall_ReturnsStatusIndicatorObject() {
+        StatusIndicator statusIndicator = QcUtils.defaultSuccessBody();
+        Assert.assertNotNull(statusIndicator);
+        Assert.assertTrue(statusIndicator.isSuccess());
     }
 
 }

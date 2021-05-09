@@ -1,16 +1,33 @@
 package com.qc.skillscy.commons.misc;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.qc.skillscy.commons.codes.ApplicationCodes;
+import com.qc.skillscy.commons.codes.HTTPCodes;
+import com.qc.skillscy.commons.exceptions.WebExceptionType;
 import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.loggers.CommonLogger;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 public class QcUtils {
 
     private QcUtils() {
     }
 
+    private static ObjectMapper objectMapper = null;
     private static String TEXT_COUNTER_NOT_LAST = "[A-Z][A-Y]";
     private static String TEXT_COUNTER_LAST = "[A-Z]Z";
     private static String TEXT_COUNTER_TO_EXPIRE = "[X-Z][A-Z]";
+
+    public static ObjectMapper jsonConverter() {
+        if (QcUtils.objectMapper == null) {
+            CommonLogger.info(QcUtils.class, "Creating Jackson Json Converter object...");
+            QcUtils.objectMapper = new ObjectMapper();
+        }
+        return QcUtils.objectMapper;
+    }
 
     public static String generateNextID(String companyID) throws WebServiceException {
         Validator.notNull(companyID);
@@ -41,6 +58,29 @@ public class QcUtils {
         String nextCompanyID = department.concat(textCounter).concat(String.valueOf(numberCounter));
         CommonLogger.info(QcUtils.class, "Next ".concat(departmentName).concat(" generated from [").concat(companyID).concat("] -> [").concat(nextCompanyID).concat("]"));
         return nextCompanyID;
+    }
+
+    public static String objectToJsonString(Object any) throws WebServiceException {
+        try {
+            return QcUtils.jsonConverter().writeValueAsString(any);
+        } catch (IOException ex) {
+            System.out.println("-->");
+            CommonLogger.error(QcUtils.class, ex.getMessage());
+            throw new WebServiceException(ApplicationCodes.ERROR_JACKSON_CONVERSION, HTTPCodes.INTERNAL_ERROR, WebExceptionType.INTERNAL_ERROR);
+        }
+    }
+
+    public static Object jsonStringToObject(String anyJsonString, Class<?> type) throws WebServiceException {
+        try {
+            return QcUtils.jsonConverter().readValue(anyJsonString, type);
+        } catch (IOException ex) {
+            CommonLogger.error(QcUtils.class, ex.getMessage());
+            throw new WebServiceException(ApplicationCodes.ERROR_JACKSON_CONVERSION, HTTPCodes.INTERNAL_ERROR, WebExceptionType.INTERNAL_ERROR);
+        }
+    }
+
+    public static Map parseForFirestore(Object any) {
+        return QcUtils.jsonConverter().convertValue(any, Map.class);
     }
 
 }

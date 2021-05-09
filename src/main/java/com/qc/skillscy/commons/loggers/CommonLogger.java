@@ -24,20 +24,22 @@ public class CommonLogger {
     private CommonLogger() {
     }
 
+    private static String QC_LOG_PREFIX = "[QC Log] ";
+
     private static Logger getLoggerObject(Class<?> value) {
         return Logger.getLogger(value.getName());
     }
 
     public static void info(Class<?> classType, String message) {
-        getLoggerObject(classType).info(message);
+        getLoggerObject(classType).info(CommonLogger.QC_LOG_PREFIX.concat(message));
     }
 
     public static void warning(Class<?> classType, String message) {
-        getLoggerObject(classType).warning(message);
+        getLoggerObject(classType).warning(CommonLogger.QC_LOG_PREFIX.concat(message));
     }
 
     public static void error(Class<?> classType, String message) {
-        getLoggerObject(classType).severe(message);
+        getLoggerObject(classType).severe(CommonLogger.QC_LOG_PREFIX.concat(message));
     }
 
     public static void error(Class<?> classType, ApplicationCodes appResponse) {

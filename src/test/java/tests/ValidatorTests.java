@@ -1,3 +1,5 @@
+package tests;
+
 import com.qc.skillscy.commons.codes.ApplicationCodes;
 import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.misc.Validator;

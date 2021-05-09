@@ -12,6 +12,7 @@ public enum ApplicationCodes {
     INVALID_QC_INTERN_ID(1056, "Invalid QC Employee ID"),
     INVALID_QC_TRAINEE_ID(1057, "Invalid QC Trainee ID"),
     INVALID_QC_ID(1058, "Invalid QC Employee or Trainee ID"),
+    ERROR_JACKSON_CONVERSION(1059, "Some internal error occurred when parsing the argument with jackson methods"),
 
     /* '/youtube' */
     INVALID_OR_NO_VIDEO_CHANNEL(1100, "The requested channel is invalid or it doesn't contain any video");

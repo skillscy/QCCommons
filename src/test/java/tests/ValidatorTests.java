@@ -164,4 +164,15 @@ public class ValidatorTests {
         Assert.assertFalse(Validator.isNull(""));
     }
 
+    @Test
+    public void isNotNull_NullValue_ReturnsFalse() {
+        Assert.assertFalse(Validator.isNotNull(null));
+    }
+
+    @Test
+    public void isNotNull_NonNullValue_ReturnsTrue() {
+        Assert.assertTrue(Validator.isNotNull(""));
+    }
+
+
 }

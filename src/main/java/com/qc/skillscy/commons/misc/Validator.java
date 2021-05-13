@@ -40,6 +40,10 @@ public class Validator {
         return value == null;
     }
 
+    public static boolean isNotNull(Object value) {
+        return value != null;
+    }
+
     public static void checkQcEmployeeID(String employeeID) throws WebServiceException {
         Validator.notNull(employeeID);
         if (!employeeID.matches(Validator.QC_EMPLOYEE_ID_REGEX))

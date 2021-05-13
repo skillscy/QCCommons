@@ -1,6 +1,5 @@
 package tests;
 
-import com.qc.skillscy.commons.codes.ApplicationCodes;
 import com.qc.skillscy.commons.dto.StatusIndicator;
 import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.misc.QcUtils;
@@ -9,7 +8,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,39 +26,99 @@ public class QcUtilTests {
     public ExpectedException exception = ExpectedException.none();
 
     @Test
-    public void generateNextID_ClearCompanyID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q1AA1000");
+    public void generateNextCompanyID_ClearCompanyID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q1AA1000");
         Assert.assertEquals("Q1AA1001", nextID);
     }
 
     @Test
-    public void generateNextID_NumberEndCompanyID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q1AA9999");
+    public void generateNextCompanyID_NumberEndCompanyID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q1AA9999");
         Assert.assertEquals("Q1AB1000", nextID);
     }
 
     @Test
-    public void generateNextID_TextEndCompanyID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q1AZ9999");
+    public void generateNextCompanyID_TextEndCompanyID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q1AZ9999");
         Assert.assertEquals("Q1BA1000", nextID);
     }
 
     @Test
-    public void generateNextID_ToExpireEmployeeID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q1WZ9999");
+    public void generateNextCompanyID_ToExpireEmployeeID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q1WZ9999");
         Assert.assertEquals("Q1XA1000", nextID);
     }
 
     @Test
-    public void generateNextID_ToExpireInternID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q2WZ9999");
+    public void generateNextCompanyID_ToExpireInternID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q2WZ9999");
         Assert.assertEquals("Q2XA1000", nextID);
     }
 
     @Test
-    public void generateNextID_ToExpireTraineeID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextID("Q3WZ9999");
+    public void generateNextCompanyID_ToExpireTraineeID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCompanyID("Q3WZ9999");
         Assert.assertEquals("Q3XA1000", nextID);
+    }
+
+    @Test
+    public void generateNextArticleID_ClearArticleID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextArticleID("AA1000");
+        Assert.assertEquals("AA1001", nextID);
+    }
+
+    @Test
+    public void generateNextArticleID_NumberEndArticleID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextArticleID("AA9999");
+        Assert.assertEquals("AB1000", nextID);
+    }
+
+    @Test
+    public void generateNextArticleID_TextEndArticleID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextArticleID("AZ9999");
+        Assert.assertEquals("BA1000", nextID);
+    }
+
+    @Test
+    public void generateNextArticleID_ToExpireArticleID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextArticleID("WZ9999");
+        Assert.assertEquals("XA1000", nextID);
+    }
+
+    @Test
+    public void generateNextCommentsID_ClearCommentsID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCommentsID("12345678");
+        Assert.assertEquals("12345679", nextID);
+    }
+
+    @Test
+    public void generateNextCommentsID_ToExpireCommentsID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextCommentsID("92345678");
+        Assert.assertEquals("92345679", nextID);
+    }
+
+    @Test
+    public void generateNextClientID_ClearClientID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextClientID("C1234");
+        Assert.assertEquals("C1235", nextID);
+    }
+
+    @Test
+    public void generateNextClientID_ToExpireClientID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextClientID("C9876");
+        Assert.assertEquals("C9877", nextID);
+    }
+
+    @Test
+    public void generateNextFilesID_ClearFilesID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextFilesID("FQ1BY8735");
+        Assert.assertEquals("FQ1BY8736", nextID);
+    }
+
+    @Test
+    public void generateNextFilesID_ToExpireFilesID_GeneratesNextValue() throws WebServiceException {
+        String nextID = QcUtils.generateNextFilesID("FQ1YF8735");
+        Assert.assertEquals("FQ1YF8736", nextID);
     }
 
     @Test
@@ -109,11 +167,11 @@ public class QcUtilTests {
         Map<String, Object> returnedObject = QcUtils.parseForFirestore(sampleDTO);
 
         Assert.assertNotNull(returnedObject);
-        Assert.assertNotNull(returnedObject.get("name"));
+        Assert.assertNotNull(returnedObject.get("StudentName"));
         Assert.assertNotNull(returnedObject.get("age"));
         Assert.assertNotNull(returnedObject.get("marks"));
         Assert.assertNotNull(returnedObject.get("grade"));
-        Assert.assertEquals(returnedObject.get("name"), "Sample Name");
+        Assert.assertEquals(returnedObject.get("StudentName"), "Sample Name");
         Assert.assertEquals(returnedObject.get("age"), 12);
         Assert.assertEquals(returnedObject.get("marks"), 72.0);
         Assert.assertEquals(returnedObject.get("grade"), "B");

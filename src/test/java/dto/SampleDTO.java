@@ -1,5 +1,7 @@
 package dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SampleDTO {
 
     private String name;
@@ -11,6 +13,7 @@ public class SampleDTO {
         return name;
     }
 
+    @JsonProperty("StudentName")
     public void setName(String name) {
         this.name = name;
     }

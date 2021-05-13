@@ -94,4 +94,74 @@ public class ValidatorTests {
         Validator.checkQcID("Q3AA1001");
     }
 
+    @Test
+    public void checkQcArticleID_InvalidArticleID_ThrowsWebServiceException() throws WebServiceException {
+        exception.expect(WebServiceException.class);
+        exception.expectMessage(ApplicationCodes.INVALID_QC_ARTICLE_ID.logMessage());
+        Validator.checkQcArticleID("INVALID");
+    }
+
+    @Test
+    public void checkQcArticleID_ValidArticleID_DoNothing() throws WebServiceException {
+        Validator.checkQcArticleID("AA0001");
+    }
+
+    @Test
+    public void checkQcCommentsID_InvalidCommentsID_ThrowsWebServiceException() throws WebServiceException {
+        exception.expect(WebServiceException.class);
+        exception.expectMessage(ApplicationCodes.INVALID_QC_COMMENTS_ID.logMessage());
+        Validator.checkQcCommentsID("1001001");
+    }
+
+    @Test
+    public void checkQcCommentsID_ValidCommentsID_DoNothing() throws WebServiceException {
+        Validator.checkQcCommentsID("10000123");
+    }
+
+    @Test
+    public void checkQcClientsID_InvalidClientsID_ThrowsWebServiceException() throws WebServiceException {
+        exception.expect(WebServiceException.class);
+        exception.expectMessage(ApplicationCodes.INVALID_QC_CLIENT_ID.logMessage());
+        Validator.checkQcClientID("CC102");
+    }
+
+    @Test
+    public void checkQcClientsID_ValidClientsID_DoNothing() throws WebServiceException {
+        Validator.checkQcClientID("C1234");
+    }
+
+    @Test
+    public void checkQcFilesID_InvalidFilesID_ThrowsWebServiceException() throws WebServiceException {
+        exception.expect(WebServiceException.class);
+        exception.expectMessage(ApplicationCodes.INVALID_QC_FILES_ID.logMessage());
+        Validator.checkQcFilesID("INVALID");
+    }
+
+    @Test
+    public void checkQcFilesID_ValidFilesID_DoNothing() throws WebServiceException {
+        Validator.checkQcFilesID("FQ1BY8735");
+    }
+
+    @Test
+    public void checkQcProjectID_InvalidProjectID_ThrowsWebServiceException() throws WebServiceException {
+        exception.expect(WebServiceException.class);
+        exception.expectMessage(ApplicationCodes.INVALID_QC_PROJECT_ID.logMessage());
+        Validator.checkQcProjectID("FBY873E");
+    }
+
+    @Test
+    public void checkQcProjectID_ValidProjectID_DoNothing() throws WebServiceException {
+        Validator.checkQcProjectID("INDEED");
+    }
+
+    @Test
+    public void isNull_NullValue_ReturnsTrue() {
+        Assert.assertTrue(Validator.isNull(null));
+    }
+
+    @Test
+    public void isNull_NonNullValue_ReturnsFalse() {
+        Assert.assertFalse(Validator.isNull(""));
+    }
+
 }

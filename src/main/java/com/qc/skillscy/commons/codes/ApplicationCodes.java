@@ -13,6 +13,12 @@ public enum ApplicationCodes {
     INVALID_QC_TRAINEE_ID(1057, "Invalid QC Trainee ID"),
     INVALID_QC_ID(1058, "Invalid QC Employee or Trainee ID"),
     ERROR_JACKSON_CONVERSION(1059, "Some internal error occurred when parsing the argument with jackson methods"),
+    FIREBASE_GOOGLE_CREDENTIALS_STREAM_ERROR(1060, "Error occurred during parsing Google Credentials strings"),
+    INVALID_QC_ARTICLE_ID(1061, "Invalid QC Article ID"),
+    INVALID_QC_COMMENTS_ID(1062, "Invalid QC Comments ID"),
+    INVALID_QC_CLIENT_ID(1063, "Invalid QC Clients ID"),
+    INVALID_QC_FILES_ID(1064, "Invalid QC Files ID"),
+    INVALID_QC_PROJECT_ID(1065, "Invalid QC Project ID"),
 
     /* '/youtube' */
     INVALID_OR_NO_VIDEO_CHANNEL(1100, "The requested channel is invalid or it doesn't contain any video");

@@ -36,7 +36,7 @@ public class FirebaseDB {
         }
 
         if (Validator.isNotNull(document)) {
-            LookupDocument lookupDocument = document.toObject(LookupDocument.class);
+            LookupDocument lookupDocument = new LookupDocument(document.getData());
             if (Validator.isNotNull(lookupDocument)) {
                 CommonLogger.info(FirebaseDB.class, "Lookup document received");
                 if (Validator.isNotNull(lookupDocument.getLatestID())) {

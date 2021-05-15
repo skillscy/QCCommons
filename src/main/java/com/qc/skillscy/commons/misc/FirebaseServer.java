@@ -1,8 +1,10 @@
 package com.qc.skillscy.commons.misc;
 
 import com.google.auth.oauth2.GoogleCredentials;
+import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
+import com.google.firebase.cloud.FirestoreClient;
 import com.qc.skillscy.commons.codes.ApplicationCodes;
 import com.qc.skillscy.commons.codes.HTTPCodes;
 import com.qc.skillscy.commons.exceptions.WebExceptionType;
@@ -24,7 +26,7 @@ public class FirebaseServer {
         return FirebaseServer.firebaseServer;
     }
 
-    public void initialize(String url, String credentials) throws Exception {
+    public Firestore initialize(String url, String credentials) throws Exception {
         FirebaseOptions options = null;
         CommonLogger.info(FirebaseServer.class, "Parsing database secret to InputStream...");
         InputStream credentialsStream = new ByteArrayInputStream(credentials.getBytes(StandardCharsets.UTF_8));
@@ -50,6 +52,7 @@ public class FirebaseServer {
             CommonLogger.info(FirebaseServer.class, "Using already initialized app...");
         }
 
+        return FirestoreClient.getFirestore();
     }
 
 }

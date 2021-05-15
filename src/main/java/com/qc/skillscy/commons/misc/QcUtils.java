@@ -87,6 +87,9 @@ public class QcUtils {
         }
 
         String nextCommentsID = String.valueOf(numberCounter);
+        while (nextCommentsID.length() < 8)
+            nextCommentsID = "0".concat(nextCommentsID);
+
         CommonLogger.info(QcUtils.class, "Next Comments ID generated from [".concat(commentsID).concat("] -> [").concat(nextCommentsID).concat("]"));
         return nextCommentsID;
     }
@@ -157,10 +160,6 @@ public class QcUtils {
             CommonLogger.error(QcUtils.class, ex.getMessage());
             throw new WebServiceException(ApplicationCodes.ERROR_JACKSON_CONVERSION, HTTPCodes.INTERNAL_ERROR, WebExceptionType.INTERNAL_ERROR);
         }
-    }
-
-    public static Map parseForFirestore(Object any) {
-        return QcUtils.jsonConverter().convertValue(any, Map.class);
     }
 
     public static StatusIndicator defaultSuccessBody() {

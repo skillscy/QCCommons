@@ -19,6 +19,10 @@ public enum ApplicationCodes {
     INVALID_QC_CLIENT_ID(1063, "Invalid QC Clients ID"),
     INVALID_QC_FILES_ID(1064, "Invalid QC Files ID"),
     INVALID_QC_PROJECT_ID(1065, "Invalid QC Project ID"),
+    FIREBASE_DOCUMENT_EXCEPTION(1066, "Interruption or Execution exception occurred while getting a document from ApiFuture"),
+    FIREBASE_DOCUMENT_NOT_EXIST(1067, "Requested Firebase document not available in Firestore"),
+    FIREBASE_DOCUMENT_NOT_RETRIEVED(1068, "Available Firestore document is not retrieved"),
+    DOCUMENT_LOOKUP_LATEST_ID_NOT_FOUND(1069, "Latest ID parameter missing the Lookup document"),
 
     /* '/youtube' */
     INVALID_OR_NO_VIDEO_CHANNEL(1100, "The requested channel is invalid or it doesn't contain any video");

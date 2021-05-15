@@ -87,8 +87,8 @@ public class QcUtilTests {
 
     @Test
     public void generateNextCommentsID_ClearCommentsID_GeneratesNextValue() throws WebServiceException {
-        String nextID = QcUtils.generateNextCommentsID("12345678");
-        Assert.assertEquals("12345679", nextID);
+        String nextID = QcUtils.generateNextCommentsID("00002001");
+        Assert.assertEquals("00002002", nextID);
     }
 
     @Test
@@ -154,27 +154,6 @@ public class QcUtilTests {
         Assert.assertNotNull(returnedObject);
         Assert.assertNotNull(returnedObject.get("SampleValue"));
         Assert.assertEquals(returnedObject.get("SampleValue"), 3);
-    }
-
-    @Test
-    public void parseForFirestore_ValidObject_ReturnsMapObject() throws WebServiceException {
-        SampleDTO sampleDTO = new SampleDTO();
-        sampleDTO.setName("Sample Name");
-        sampleDTO.setAge(12);
-        sampleDTO.setMarks(72);
-        sampleDTO.setGrade('B');
-
-        Map<String, Object> returnedObject = QcUtils.parseForFirestore(sampleDTO);
-
-        Assert.assertNotNull(returnedObject);
-        Assert.assertNotNull(returnedObject.get("StudentName"));
-        Assert.assertNotNull(returnedObject.get("age"));
-        Assert.assertNotNull(returnedObject.get("marks"));
-        Assert.assertNotNull(returnedObject.get("grade"));
-        Assert.assertEquals(returnedObject.get("StudentName"), "Sample Name");
-        Assert.assertEquals(returnedObject.get("age"), 12);
-        Assert.assertEquals(returnedObject.get("marks"), 72.0);
-        Assert.assertEquals(returnedObject.get("grade"), "B");
     }
 
     @Test

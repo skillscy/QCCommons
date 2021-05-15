@@ -9,7 +9,6 @@ import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.loggers.CommonLogger;
 
 import java.io.IOException;
-import java.util.Map;
 
 public class QcUtils {
 

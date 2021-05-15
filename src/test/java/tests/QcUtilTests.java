@@ -3,7 +3,6 @@ package tests;
 import com.qc.skillscy.commons.dto.StatusIndicator;
 import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.misc.QcUtils;
-import dto.SampleDTO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;

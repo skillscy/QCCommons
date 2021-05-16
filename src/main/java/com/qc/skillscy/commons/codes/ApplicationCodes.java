@@ -23,6 +23,8 @@ public enum ApplicationCodes {
     FIREBASE_DOCUMENT_NOT_EXIST(1067, "Requested Firebase document not available in Firestore"),
     FIREBASE_DOCUMENT_NOT_RETRIEVED(1068, "Available Firestore document is not retrieved"),
     DOCUMENT_LOOKUP_LATEST_ID_NOT_FOUND(1069, "Latest ID parameter missing the Lookup document"),
+    DOCUMENT_LOOKUP_AVAILABLE_PROJECT_IDS_NOT_FOUND(1070, "Available project IDs parameter missing the Lookup document"),
+    DOCUMENT_LOOKUP_PEOPLE_LATEST_IDs_NOT_FOUND(1070, "Available People's project IDs parameter missing the Lookup document"),
 
     /* '/youtube' */
     INVALID_OR_NO_VIDEO_CHANNEL(1100, "The requested channel is invalid or it doesn't contain any video");

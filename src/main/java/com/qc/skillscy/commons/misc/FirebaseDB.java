@@ -58,7 +58,7 @@ public class FirebaseDB {
 
     public void updateLatestIDToLookupDocument(Firestore firestore, String collectionName, String newIDValue) throws WebServiceException {
         CommonLogger.info(FirebaseDB.class, "Connecting to Firebase Firestore for updating Lookup document with new ID [".concat(newIDValue).concat("]..."));
-        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update("latest_id", newIDValue);
+        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update(  QcCommonConstants.LOOKUP_DOC_LATEST_ID, newIDValue);
         WriteResult writeResult;
 
         try {

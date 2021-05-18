@@ -1,5 +1,6 @@
 package com.qc.skillscy.commons.dto;
 
+import com.qc.skillscy.commons.misc.QcCommonConstants;
 import com.qc.skillscy.commons.misc.Validator;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public class LookupDocument {
     }
 
     public LookupDocument(Map<String, Object> databaseValue) {
-        this.latestID = (String) databaseValue.get("latest_id");
+        this.latestID = (String) databaseValue.get(QcCommonConstants.LOOKUP_DOC_LATEST_ID);
 
         List<String> availableProjectIDs = null;
         Object o = databaseValue.get("available_ids");

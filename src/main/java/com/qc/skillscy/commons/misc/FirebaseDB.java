@@ -58,7 +58,7 @@ public class FirebaseDB {
 
     public void updateLatestIDToLookupDocument(Firestore firestore, String collectionName, String newIDValue) throws WebServiceException {
         CommonLogger.info(FirebaseDB.class, "Connecting to Firebase Firestore for updating Lookup document with new ID [".concat(newIDValue).concat("]..."));
-        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update(  QcCommonConstants.LOOKUP_DOC_LATEST_ID, newIDValue);
+        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update(QcCommonConstants.LOOKUP_DOC_LATEST_ID, newIDValue);
         WriteResult writeResult;
 
         try {
@@ -100,7 +100,7 @@ public class FirebaseDB {
 
     public void updateAvailableProjectIDsToLookupDocument(Firestore firestore, String collectionName, String newIDValue) throws WebServiceException {
         CommonLogger.info(FirebaseDB.class, "Connecting to Firebase Firestore for updating Lookup document with new availble Project ID [".concat(newIDValue).concat("]..."));
-        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update("available_ids", FieldValue.arrayUnion(newIDValue));
+        ApiFuture<?> future = firestore.collection(collectionName).document(this.LOOKUP_DOCUMENT_NAME).update(QcCommonConstants.LOOKUP_DOC_AVAILABLE_IDs, FieldValue.arrayUnion(newIDValue));
         WriteResult writeResult;
 
         try {

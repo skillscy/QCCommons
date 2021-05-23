@@ -19,7 +19,7 @@ public class LookupDocument {
         this.latestID = (String) databaseValue.get(QcCommonConstants.LOOKUP_DOC_LATEST_ID);
 
         List<String> availableProjectIDs = null;
-        Object o = databaseValue.get("available_ids");
+        Object o = databaseValue.get(QcCommonConstants.LOOKUP_DOC_AVAILABLE_IDs);
         if (Validator.isNotNull(o)) {
             if (o instanceof List<?>) {
                 availableProjectIDs = ((List<Object>) o).stream().map(String::valueOf).collect(Collectors.toList());

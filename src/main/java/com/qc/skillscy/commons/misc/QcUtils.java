@@ -52,7 +52,11 @@ public class QcUtils {
                 CommonLogger.warning(QcUtils.class, "Article IDs will expire soon... Please take a look on that!");
         }
 
-        String nextArticleID = textCounter.concat(String.valueOf(numberCounter));
+        String numberValue = String.valueOf(numberCounter);
+        while (numberValue.length() < 4)
+            numberValue = "0".concat(numberValue);
+
+        String nextArticleID = textCounter.concat(numberValue);
         CommonLogger.info(QcUtils.class, "Next Article ID generated from [".concat(articleID).concat("] -> [").concat(nextArticleID).concat("]"));
         return nextArticleID;
     }
@@ -69,7 +73,11 @@ public class QcUtils {
             CommonLogger.warning(QcUtils.class, "Client IDs will expire soon... Please take a look on that!");
         }
 
-        String nextClientID = department.concat(String.valueOf(numberCounter));
+        String numberValue = String.valueOf(numberCounter);
+        while (numberValue.length() < 4)
+            numberValue = "0".concat(numberValue);
+
+        String nextClientID = department.concat(numberValue);
         CommonLogger.info(QcUtils.class, "Next Client ID generated from [".concat(clientID).concat("] -> [").concat(nextClientID).concat("]"));
         return nextClientID;
     }

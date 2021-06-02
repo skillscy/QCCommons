@@ -10,8 +10,10 @@ import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.loggers.CommonLogger;
 
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class QcUtils {
 
@@ -23,12 +25,13 @@ public class QcUtils {
     private static String TEXT_COUNTER_LAST = "[A-Z]Z";
     private static String TEXT_COUNTER_TO_EXPIRE = "[X-Z][A-Z]";
 
-    private static SimpleDateFormat simpleDateFormat;
+    private static DateFormat  simpleDateFormat;
 
-    private static SimpleDateFormat getSimpleDateFormat() {
+    private static DateFormat getSimpleDateFormat() {
         if (QcUtils.simpleDateFormat == null) {
             CommonLogger.info(QcUtils.class, "creating SimpleDateFormat object...");
             QcUtils.simpleDateFormat = new SimpleDateFormat(QcCommonConstants.DATE_TIME_FORMAT);
+            QcUtils.simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
         }
         CommonLogger.info(QcUtils.class, "returning SimpleDateFormat object...");
         return QcUtils.simpleDateFormat;

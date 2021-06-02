@@ -1,6 +1,7 @@
 package com.qc.skillscy.commons.misc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.cloud.Timestamp;
 import com.qc.skillscy.commons.codes.ApplicationCodes;
 import com.qc.skillscy.commons.codes.HTTPCodes;
 import com.qc.skillscy.commons.dto.StatusIndicator;
@@ -9,6 +10,8 @@ import com.qc.skillscy.commons.exceptions.WebServiceException;
 import com.qc.skillscy.commons.loggers.CommonLogger;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class QcUtils {
 
@@ -19,6 +22,17 @@ public class QcUtils {
     private static String TEXT_COUNTER_NOT_LAST = "[A-Z][A-Y]";
     private static String TEXT_COUNTER_LAST = "[A-Z]Z";
     private static String TEXT_COUNTER_TO_EXPIRE = "[X-Z][A-Z]";
+
+    private static SimpleDateFormat simpleDateFormat;
+
+    private static SimpleDateFormat getSimpleDateFormat() {
+        if (QcUtils.simpleDateFormat == null) {
+            CommonLogger.info(QcUtils.class, "creating SimpleDateFormat object...");
+            QcUtils.simpleDateFormat = new SimpleDateFormat(QcCommonConstants.DATE_TIME_FORMAT);
+        }
+        CommonLogger.info(QcUtils.class, "returning SimpleDateFormat object...");
+        return QcUtils.simpleDateFormat;
+    }
 
     public static ObjectMapper jsonConverter() {
         if (QcUtils.objectMapper == null) {
@@ -174,6 +188,13 @@ public class QcUtils {
         StatusIndicator statusIndicator = new StatusIndicator();
         statusIndicator.completed();
         return statusIndicator;
+    }
+
+    public static String convertTimeStampToString(Timestamp timestamp) {
+        CommonLogger.info(QcUtils.class, "converting Timestamp [".concat(timestamp.toString()).concat("] to string..."));
+        String formattedOutput = QcUtils.getSimpleDateFormat().format(timestamp.toDate());
+        CommonLogger.info(QcUtils.class, "Successfully converted [".concat(timestamp.toString()).concat("] to [").concat(formattedOutput).concat("]"));
+        return formattedOutput;
     }
 
 }

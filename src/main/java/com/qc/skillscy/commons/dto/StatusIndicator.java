@@ -7,11 +7,11 @@ import com.qc.skillscy.commons.loggers.CommonLogger;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class StatusIndicator {
 
-    private boolean success;
+    private Boolean success;
     private ErrorResponse error;
 
     @JsonProperty("Success")
-    public boolean isSuccess() {
+    public Boolean isSuccess() {
         return success;
     }
 
